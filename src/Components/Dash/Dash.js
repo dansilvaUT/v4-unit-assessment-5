@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import './Dash.css';
 
 class Dash extends Component {
@@ -115,5 +115,5 @@ class Dash extends Component {
 function mapStateToProps(state) {
   return state;
 }
-
-export default connect(mapStateToProps)(Dash);
+// connect(mapStateToProps)(Dash)
+export default Dash;
