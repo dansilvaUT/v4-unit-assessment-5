@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './Dash.css';
 
 class Dash extends Component {
@@ -61,13 +62,15 @@ class Dash extends Component {
   }
 
   render() {
-    let {loading, search, posts, myPosts, oldestFirst} = this.state
+    let { loading, search, posts, myPosts, oldestFirst } = this.state
 
     let mappedPosts = posts.map(post => {
       return <div className='content-box dash-post-box' key={post.post_id}>
+        <Link to={`/post/${post.post_id}`}>
           <h3>{post.title}</h3>
-          {
-            post.author_username === this.props.username 
+        </Link>
+        {
+          post.author_username === this.props.username
             ?
             <button onClick={_ => this.deletePost(post.post_id)}>delete your post</button>
             :
@@ -75,10 +78,9 @@ class Dash extends Component {
               <p>by {post.author_username}</p>
               <img src={post.profile_pic} alt='author' />
             </div>
-          }
-        </div>
+        }
+      </div>
     })
-    
     return (
       <div className='dash'>
         <div className='content-box dash-filter'>
@@ -115,5 +117,5 @@ class Dash extends Component {
 function mapStateToProps(state) {
   return state;
 }
-// connect(mapStateToProps)(Dash)
-export default Dash;
+// 
+export default connect(mapStateToProps)(Dash);

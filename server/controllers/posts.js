@@ -45,7 +45,7 @@ module.exports = {
     const date = new Date();
 
     if (id) {
-      db.create_post([id, title, img, content, date]);
+      db.post.create_post([id, title, img, content, date]);
       return res.status(200);
     } else {
       return res.status(403).send(`You need to be logged in to do that.`);
