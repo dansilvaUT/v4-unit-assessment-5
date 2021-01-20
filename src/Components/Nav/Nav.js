@@ -44,7 +44,7 @@ class Nav extends Component {
             <img className='nav-img' src={newLogo} alt='new post' />
           </Link>
         </div>
-        <Link to='/logout' onClick={this.logout}>
+        <Link to='/' onClick={() => this.logout()}>
           <img className='nav-img logout' src={logoutLogo} alt='logout' />
         </Link>
 
