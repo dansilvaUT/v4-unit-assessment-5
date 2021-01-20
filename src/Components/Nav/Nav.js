@@ -34,7 +34,7 @@ class Nav extends Component {
       <div className='nav'>
         <div className='nav-profile-container'>
           <div className='nav-profile-pic' style={{ backgroundImage: `url('${this.props.profile_picture}')` }}></div>
-          <p>{this.props.username}</p>
+          <p className='username'>{this.props.username}</p>
         </div>
         <div className='nav-links'>
           <Link to='/dash'>
