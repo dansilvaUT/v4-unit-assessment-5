@@ -57,7 +57,8 @@ module.exports = {
       .then(post => post[0] ? res.status(200).send(post[0]) : res.status(200).send({}))
   },
   deletePost: (req, res) => {
-    req.app.get('db').post.delete_post(req.params.id)
+    const { id } = req.params;
+    req.app.get('db').post.delete_post({ id })
       .then(_ => res.sendStatus(200))
   }
 }
